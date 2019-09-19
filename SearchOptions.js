@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Checkbox from "./checkbox";
 import InputBox from "./inputBox";
 import Button from "./button";
+import Radio from "./radio";
 import styled from 'styled-components';
 
 class SearchOptions extends React.Component {
@@ -64,10 +65,10 @@ class SearchOptions extends React.Component {
           <LevelIdEanBorder>
             <div>
               <Margin>
-                <input type="radio" name="selection" value="LevelId" defaultChecked onChange={this.radioChange} />Level Id <br />
+                <Radio name="selection" value="LevelId" checked onChange={this.radioChange} />Level Id
               </Margin>
               <Margin>
-                <input type="radio" name="selection" value="EAN" onChange={this.radioChange} />EAN <br />
+                <Radio name="selection" value="EAN" onChange={this.radioChange} />EAN
               </Margin>
             </div>
             <Margin>
