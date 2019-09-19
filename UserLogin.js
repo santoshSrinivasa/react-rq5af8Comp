@@ -1,5 +1,7 @@
 import React from "react";
 import Welcome from "./Welcome";
+import styled from 'styled-components';
+import InputBox from "./inputBox";
 
 export default class UserLogin extends React.Component {
   constructor(props) {
@@ -10,7 +12,7 @@ export default class UserLogin extends React.Component {
       userNameEntered: "",
       passwordEntered: "",
       isloginValid: false,
-      invalidFlag:''
+      invalidFlag: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -30,31 +32,57 @@ export default class UserLogin extends React.Component {
     const nameEntered = this.state.userNameEntered;
     const pwdEntered = this.state.passwordEntered
     if ((nameDefault == nameEntered) && (pwdDefault == pwdEntered)) {
-      this.setState({ isloginValid: true });  
-      this.props.history.push("/searchOptions")    
-    }else{
+      this.setState({ isloginValid: true });
+      this.props.history.push("/searchOptions")
+    } else {
       const invalid = "Invalid User login"
-      this.setState({invalidFlag:invalid})
+      this.setState({ invalidFlag: invalid })
     }
   }
   render() {
     return (
-      <div className="userLogin">
-        <div className="mainDiv">
-          <div className="col-md-12">
+      <UserLoginContainer>
+        <MainDiv>
+          <div>
             <label>User name : </label>
-            <input type="text" name="userNameEntered" className="marginUsername" onChange={this.handleChange} />
+            <InputBox type="text" name="userNameEntered" className="marginUsername" onChange={this.handleChange} />
           </div>
-          <div className="col-md-12 marginTop">
+          <MarginTop>
             <label>Password : </label>
-            <input type="password" name="passwordEntered" className="marginPwd" onChange={this.handleChange} />
-          </div>
-          <div className="alignItem marginTop">
-            <button type="button" onClick={this.handleClick}>Login</button>
-          </div>
-          <h3 className="loginInvalid">{this.state.invalidFlag}</h3>
-        </div>        
-      </div>
+            <InputBox type="password" name="passwordEntered" className="marginPwd" onChange={this.handleChange} />
+          </MarginTop>
+          <MarginTop>
+            < AlignButton>
+              <button type="button" onClick={this.handleClick}>Login</button>
+            </AlignButton >
+          </MarginTop >
+          <LoginResults>{this.state.invalidFlag}</LoginResults>
+        </MainDiv>
+      </UserLoginContainer>
     );
   }
 }
+
+const UserLoginContainer = styled.div`
+    height: -webkit-fill-available;
+    background-color: antiquewhite;
+`;
+
+const MainDiv = styled.div`
+    top: 45%;
+    left: 40%;
+    position: absolute;
+`;
+
+const MarginTop = styled.div`
+  margin-top: 10px;
+`;
+
+const AlignButton = styled.div`
+  text-align: center;
+`;
+
+const LoginResults = styled.h3`
+  text-align: center;
+  color: red;
+`;

@@ -65,14 +65,14 @@ class SearchOptions extends React.Component {
           <LevelIdEanBorder>
             <div>
               <Margin>
-                <Radio name="selection" value="LevelId" checked onChange={this.radioChange} />Level Id
+                <Radio name="selection" value="LevelId" defaultChecked onChange={this.radioChange} />Level Id
               </Margin>
               <Margin>
                 <Radio name="selection" value="EAN" onChange={this.radioChange} />EAN
               </Margin>
             </div>
             <Margin>
-              <InputBox onChange={this.levelIdChange} />
+              <InputBox type="text" onChange={this.levelIdChange} />
             </Margin>
           </LevelIdEanBorder>
           <CheckboxBorder>
@@ -81,7 +81,7 @@ class SearchOptions extends React.Component {
           </CheckboxBorder>
         </SearchContainer>
         <ButtonMargin>
-          <Button onClick={this.searchClick} />
+          <Button type="submit" onClick={this.searchClick} />
         </ButtonMargin>
         <SearchResults>
           <ViewData />
