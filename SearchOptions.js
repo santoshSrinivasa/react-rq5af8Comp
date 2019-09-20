@@ -65,10 +65,10 @@ class SearchOptions extends React.Component {
           <LevelIdEanBorder>
             <div>
               <Margin>
-                <Radio type="radio" name="selection" value="LevelId" defaultChecked="defaultChecked" onChange={this.radioChange} />Level Id
+                <Radio type="radio" name="selection" value="Level Id" defaultChecked="defaultChecked" onChange={this.radioChange} />
               </Margin>
               <Margin>
-                <Radio type="radio" name="selection" value="EAN" onChange={this.radioChange} />EAN
+                <Radio type="radio" name="selection" value="EAN" onChange={this.radioChange} />
               </Margin>
             </div>
             <Margin>
@@ -76,8 +76,8 @@ class SearchOptions extends React.Component {
             </Margin>
           </LevelIdEanBorder>
           <CheckboxBorder>
-            <div><Checkbox value="cash"   className="margin" onChange={this.cashCheckBoxChange} />Cash</div>
-            <div><Checkbox value="delete" className="margin" onChange={this.deleteCheckBoxChange} />Delete</div>
+            <div><Checkbox type="checkbox" value="Cash"   className="margin" onChange={this.cashCheckBoxChange} /></div>
+            <div><Checkbox type="checkbox" value="Delete" className="margin" onChange={this.deleteCheckBoxChange} /></div>
           </CheckboxBorder>
         </SearchContainer>
         <ButtonMargin>
